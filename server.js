@@ -32,6 +32,11 @@ app.get("/", (req, res) => {
   //res.send("response")
 });
 
+app.get("/hello", (req, res) => {
+  res.send("Welcome to node")
+  //res.send("response")
+});
+
 app.listen(8080, () => {
   console.log("Server started on 8080");
 });
