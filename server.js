@@ -37,6 +37,17 @@ app.get("/hello", (req, res) => {
   //res.send("response")
 });
 
+app.get('/category/:catId', (req, res)=>{
+  let catId =req.params.catId
+    var sql=`SELECT * FROM main_category natural join sub_category natural join product where catId=`+catId;
+    con.query(sql, function (err, data) {
+    if (err) throw err;
+    res.send({selectedCategory:data})
+    //console.log(data)
+    //res.render('product-list', { title: 'User List', userData: data});
+  });
+});
+
 app.listen(8080, () => {
   console.log("Server started on 8080");
 });
